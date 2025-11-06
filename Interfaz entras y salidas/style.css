@@ -1,19 +1,20 @@
-/* --- Variables de Color (basadas en tu imagen) --- */
 :root {
-    --color-primary: #4F46E5; /* Azul/Morado principal */
-    --color-primary-light: #EEF2FF; /* Fondo de la píldora */
-    --color-primary-text: #4338CA; /* Texto de la píldora */
-    --color-bg: #F9FAFB;      /* Fondo general de la página */
-    --color-card-bg: #FFFFFF; /* Fondo de la tarjeta/tabla */
-    --color-tab-bg: #F3F4F6;   /* Fondo del contenedor de tabs */
-    --color-text-dark: #1F2937;  /* Texto principal */
-    --color-text-light: #6B7280; /* Texto secundario/subtítulos */
-    --color-border: #E5E7EB;   /* Bordes de tabla */
+    --color-primary: #4F46E5;
+    --color-primary-light: #EEF2FF;
+    --color-primary-text: #4338CA;
+    --color-bg: #F9FAFB;
+    --color-card-bg: #FFFFFF;
+    --color-tab-bg: #F3F4F6;
+    --color-text-dark: #1F2937;
+    --color-text-light: #6B7280;
+    --color-border: #E5E7EB;
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --color-danger: #EF4444;
+    --color-danger-light: #FEE2E2;
+    --color-danger-text: #DC2626;
 }
 
-/* --- Reseteo Básico y Fuente --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: var(--color-bg);
@@ -22,13 +23,11 @@ body {
     padding: 2rem;
 }
 
-/* --- Contenedor Principal --- */
 .inventory-container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* --- 1. Cabecera (Header) --- */
 .header {
     display: flex;
     justify-content: space-between;
@@ -79,7 +78,6 @@ body {
     gap: 0.75rem;
 }
 
-/* --- Estilos de Botones --- */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -103,6 +101,7 @@ body {
     background-color: var(--color-primary);
     color: #FFFFFF;
 }
+
 .btn-primary:hover {
     background-color: var(--color-primary-text);
 }
@@ -113,11 +112,11 @@ body {
     border-color: var(--color-border);
     box-shadow: var(--shadow-sm);
 }
+
 .btn-secondary:hover {
     background-color: var(--color-bg);
 }
 
-/* --- 2. Título Principal --- */
 .title-section h1 {
     font-size: 1.75rem;
     font-weight: 700;
@@ -130,12 +129,11 @@ body {
     margin: 0.25rem 0 0;
 }
 
-/* --- 3. Pestañas (Tabs) --- */
 .tabs {
     background-color: var(--color-tab-bg);
     border-radius: 8px;
     padding: 5px;
-    display: inline-flex; /* Para que no ocupe todo el ancho */
+    display: inline-flex;
     margin-top: 1.5rem;
 }
 
@@ -158,18 +156,17 @@ body {
     box-shadow: var(--shadow-sm);
 }
 
-/* --- 4. Área de Contenido (Tabla) --- */
 .content-tab {
-    display: none; /* Oculto por defecto */
+    display: none;
     background-color: var(--color-card-bg);
     border-radius: 12px;
     margin-top: 1.5rem;
     box-shadow: var(--shadow-md);
-    overflow: hidden; /* Para que la tabla respete el borde redondeado */
+    overflow: hidden;
 }
 
 .content-tab.active {
-    display: block; /* Visible si está activo */
+    display: block;
 }
 
 .content-header {
@@ -189,7 +186,6 @@ body {
     margin: 0.25rem 0 0;
 }
 
-/* --- 5. Tabla de Inventario --- */
 .inventory-table {
     width: 100%;
     border-collapse: collapse;
@@ -224,7 +220,6 @@ body {
     font-weight: 600;
 }
 
-/* --- Píldora de Cantidad --- */
 .pill {
     display: inline-block;
     background-color: var(--color-primary-light);
@@ -235,20 +230,25 @@ body {
     font-weight: 500;
 }
 
-/* --- 6. Estilos del Modal (AÑADIDO) --- */
+.pill-salida {
+    background-color: var(--color-danger-light);
+    color: var(--color-danger-text);
+}
+
+
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(31, 41, 55, 0.5); /* Equivalente a var(--color-text-dark) con opacidad */
+    background: rgba(31, 41, 55, 0.5);
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    visibility: hidden; /* Cambiado de display:none para animar opacidad */
+    visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
@@ -284,6 +284,7 @@ body {
     cursor: pointer;
     line-height: 1;
 }
+
 .modal-close:hover {
     color: var(--color-text-dark);
 }
@@ -301,7 +302,6 @@ body {
     margin: 0 0 1.5rem;
 }
 
-/* Estilos del formulario en el modal */
 .modal-form .form-group {
     margin-bottom: 1rem;
 }
@@ -320,7 +320,7 @@ body {
     font-size: 0.875rem;
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+    box-sizing: border-box;
 }
 
 .modal-form .form-grid {
