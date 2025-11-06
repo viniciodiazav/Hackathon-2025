@@ -35,7 +35,7 @@
                         </svg>
                         <span>Registrar Entrada</span>
                     </button>
-                    <button class="btn btn-secondary">
+                    <button class="btn btn-secondary" id="btn-abrir-modal-salida">
                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M15 16l4-4m0 0l-4-4m4 4H5m6 4v-8a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2z">
@@ -62,13 +62,13 @@
                         <h2>Registro de Entradas</h2>
                         <p>Productos ingresados al inventario</p>
                     </div>
-
+                    
                     <table class="inventory-table">
                         <thead>
                             <tr>
-                                <th>ID</th>
                                 <th>Fecha</th>
                                 <th>Modelo</th>
+                                <th>Lote</th>
                                 <th>Talla</th>
                                 <th>Cantidad</th>
                                 <th>Proveedor</th>
@@ -76,41 +76,41 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>E001</strong></td>
                                 <td>2025-01-15</td>
                                 <td>Nike Air Max</td>
+                                <td><strong>LOTE-A123</strong></td>
                                 <td>42</td>
                                 <td><span class="pill">20 unidades</span></td>
                                 <td>Distribuidora Central</td>
                             </tr>
                             <tr>
-                                <td><strong>E002</strong></td>
                                 <td>2025-01-14</td>
                                 <td>Adidas Ultraboost</td>
+                                <td><strong>LOTE-B456</strong></td>
                                 <td>40</td>
                                 <td><span class="pill">15 unidades</span></td>
                                 <td>Importadora Global</td>
                             </tr>
                             <tr>
-                                <td><strong>E003</strong></td>
                                 <td>2025-01-13</td>
                                 <td>Puma RS-X</td>
+                                <td><strong>LOTE-A124</strong></td>
                                 <td>41</td>
                                 <td><span class="pill">25 unidades</span></td>
                                 <td>Distribuidora Central</td>
                             </tr>
                             <tr>
-                                <td><strong>E004</strong></td>
                                 <td>2025-01-12</td>
                                 <td>Reebok Classic</td>
+                                <td><strong>LOTE-C789</strong></td>
                                 <td>39</td>
                                 <td><span class="pill">18 unidades</span></td>
                                 <td>Proveedor Nacional</td>
                             </tr>
                             <tr>
-                                <td><strong>E005</strong></td>
                                 <td>2025-01-11</td>
                                 <td>New Balance 574</td>
+                                <td><strong>LOTE-B457</strong></td>
                                 <td>43</td>
                                 <td><span class="pill">12 unidades</span></td>
                                 <td>Importadora Global</td>
@@ -118,15 +118,59 @@
                         </tbody>
                     </table>
                 </section>
-
+                
                 <section id="salidas" class="content-tab">
-                    <div class="content-header">
+                     <div class="content-header">
                         <h2>Registro de Salidas</h2>
                         <p>Productos que han salido del inventario.</p>
                     </div>
-                    <div style="padding: 1.5rem;">
-                        <p>Aquí iría la tabla de salidas...</p>
-                    </div>
+                    
+                    <table class="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Modelo</th>
+                                <th>Lote</th>
+                                <th>Talla</th>
+                                <th>Cantidad</th>
+                                <th>Cliente</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-01-17</td>
+                                <td>Nike Air Max</td>
+                                <td><strong>LOTE-A123</strong></td>
+                                <td>42</td>
+                                <td><span class="pill pill-salida">2 unidades</span></td>
+                                <td>Cliente Minorista</td>
+                            </tr>
+                            <tr>
+                                <td>2025-01-17</td>
+                                <td>Puma RS-X</td>
+                                <td><strong>LOTE-A124</strong></td>
+                                <td>41</td>
+                                <td><span class="pill pill-salida">1 unidad</span></td>
+                                <td>Venta en Línea</td>
+                            </tr>
+                            <tr>
+                                <td>2025-01-16</td>
+                                <td>Adidas Ultraboost</td>
+                                <td><strong>LOTE-B456</strong></td>
+                                <td>40</td>
+                                <td><span class="pill pill-salida">5 unidades</span></td>
+                                <td>Tienda Departamental</td>
+                            </tr>
+                             <tr>
+                                <td>2025-01-16</td>
+                                <td>Nike Air Max</td>
+                                <td><strong>LOTE-A123</strong></td>
+                                <td>42</td>
+                                <td><span class="pill pill-salida">3 unidades</span></td>
+                                <td>Venta en Línea</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
 
             </main>
@@ -134,7 +178,7 @@
 
         <div class="modal-overlay" id="modal-entrada">
             <div class="modal-content">
-                <button class="modal-close" id="btn-cerrar-modal">&times;</button>
+                <button class="modal-close" id="btn-cerrar-modal-entrada">&times;</button>
                 <h2>Registrar Nueva Entrada</h2>
                 <p>Complete los detalles del producto entrante.</p>
 
@@ -143,25 +187,32 @@
                         <label for="proveedor">Nombre del Proveedor</label>
                         <input type="text" id="proveedor" name="proveedor" required>
                     </div>
-                    <div class="form-group">
-                        <label for="lote">Código de Lote</label>
-                        <input type="text" id="lote" name="lote" required>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fecha-entrada">Fecha</label>
+                            <input type="date" id="fecha-entrada" name="fecha-entrada" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lote-entrada">Código de Lote</label>
+                            <input type="text" id="lote-entrada" name="lote-entrada" required>
+                        </div>
                     </div>
 
                     <div class="form-grid">
                         <div class="form-group">
-                            <label for="modelo">Modelo</label>
-                            <input type="text" id="modelo" name="modelo" required>
+                            <label for="modelo-entrada">Modelo</label>
+                            <input type="text" id="modelo-entrada" name="modelo-entrada" required>
                         </div>
                         <div class="form-group">
-                            <label for="talla">Talla</label>
-                            <input type="number" id="talla" name="talla" min="20" max="50" required>
+                            <label for="talla-entrada">Talla</label>
+                            <input type="number" id="talla-entrada" name="talla-entrada" min="20" max="50" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="cantidad">Cantidad de Pares</label>
-                        <input type="number" id="cantidad" name="cantidad" min="1" required>
+                        <label for="cantidad-entrada">Cantidad de Pares</label>
+                        <input type="number" id="cantidad-entrada" name="cantidad-entrada" min="1" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
@@ -170,6 +221,53 @@
                 </form>
             </div>
         </div>
+        
+        <div class="modal-overlay" id="modal-salida">
+            <div class="modal-content">
+                <button class="modal-close" id="btn-cerrar-modal-salida">&times;</button>
+                <h2>Registrar Nueva Salida</h2>
+                <p>Complete los detalles del producto saliente.</p>
+
+                <form id="form-salida" class="modal-form">
+                    <div class="form-group">
+                        <label for="cliente">Nombre del Cliente</label>
+                        <input type="text" id="cliente" name="cliente" required>
+                    </div>
+                    
+                     <div class="form-grid">
+                         <div class="form-group">
+                            <label for="fecha-salida">Fecha</label>
+                            <input type="date" id="fecha-salida" name="fecha-salida" required>
+                        </div>
+                         <div class="form-group">
+                            <label for="lote-salida">Código de Lote</label>
+                            <input type="text" id="lote-salida" name="lote-salida" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-grid">
+                         <div class="form-group">
+                            <label for="modelo-salida">Modelo</label>
+                            <input type="text" id="modelo-salida" name="modelo-salida" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="talla-salida">Talla</label>
+                            <input type="number" id="talla-salida" name="talla-salida" min="20" max="50" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cantidad-salida">Cantidad de Pares</label>
+                        <input type="number" id="cantidad-salida" name="cantidad-salida" min="1" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        Guardar Salida
+                    </button>
+                </form>
+            </div>
+        </div>
+
         <script src="script.js"></script>
     </body>
 </html>
