@@ -5,6 +5,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalSalida = document.getElementById('modal-salida');
     const tablaSalidas = document.getElementById('tbody-salidas');
 
+
+    // --- CÓDIGO AÑADIDO: INICIO (Validación de formulario) ---
+
+    const formSalida = document.getElementById('form-salida');
+    const btnGuardarSalida = document.getElementById('btn-guardar-salida');
+
+    // Lista de todos los inputs del formulario de salida
+    const inputsSalida = [
+        document.getElementById('cliente'),
+        document.getElementById('fecha-salida'),
+        document.getElementById('lote-salida'),
+        document.getElementById('modelo-salida'),
+        document.getElementById('talla-salida'),
+        document.getElementById('cantidad-salida')
+    ];
+
+    // Función que revisa si todos los inputs tienen valor
+    function validarFormularioSalida() {
+        const todosLlenos = inputsSalida.every(input => input.value.trim() !== '');
+        btnGuardarSalida.disabled = !todosLlenos;
+    }
+
+    // Añadimos un 'escuchador' a cada input
+    inputsSalida.forEach(input => {
+        input.addEventListener('input', validarFormularioSalida); // Valida mientras escribes
+        input.addEventListener('change', validarFormularioSalida); // Valida si cambia (para la fecha)
+    });
+
+    // --- CÓDIGO AÑADIDO: FIN ---
+
+
     cargarSalidas();
 
     function borrarTabla() {
@@ -27,6 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
         modeloInput.value = '';
         tallaInput.value = '';
         cantidadInput.value = '';
+
+        // --- MODIFICACIÓN: Se añade esta línea para resetear el botón ---
+        if(btnGuardarSalida) btnGuardarSalida.disabled = true;
     }
 
     function cargarSalidas() {
@@ -51,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
     }
 
-    const formSalida = document.getElementById('form-salida');
+    // const formSalida = document.getElementById('form-salida'); //<- Esta línea ya estaba en el código añadido
     formSalida.addEventListener('submit', e => {
         e.preventDefault();
         const cliente = String(document.getElementById('cliente').value);

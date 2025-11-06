@@ -38,6 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
         modeloInput.value = '';
         tallaInput.value = '';
         cantidadInput.value = '';
+
+        // --- MODIFICACIÓN: Se añade esta línea para resetear el botón ---
+        const btnGuardarEntrada = document.getElementById('btn-guardar-entrada');
+        if(btnGuardarEntrada) btnGuardarEntrada.disabled = true;
     }
 
     modalEntrada.addEventListener('click', e => {
@@ -71,6 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
         modeloInput.value = '';
         tallaInput.value = '';
         cantidadInput.value = '';
+
+        // --- MODIFICACIÓN: Se añade esta línea para resetear el botón ---
+        const btnGuardarSalida = document.getElementById('btn-guardar-salida');
+        if(btnGuardarSalida) btnGuardarSalida.disabled = true;
     }
 
     modalSalida.addEventListener('click', e => {

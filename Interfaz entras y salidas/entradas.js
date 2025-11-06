@@ -5,6 +5,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalEntrada = document.getElementById('modal-entrada');
     const tablaEntradas = document.getElementById('tbody-entradas');
 
+    // --- CÓDIGO AÑADIDO: INICIO (Validación de formulario) ---
+
+    const formEntrada = document.getElementById('form-entrada');
+    const btnGuardarEntrada = document.getElementById('btn-guardar-entrada');
+    
+    // Lista de todos los inputs del formulario de entrada
+    const inputsEntrada = [
+        document.getElementById('proveedor'),
+        document.getElementById('fecha-entrada'),
+        document.getElementById('lote-entrada'),
+        document.getElementById('modelo-entrada'),
+        document.getElementById('talla-entrada'),
+        document.getElementById('cantidad-entrada')
+    ];
+
+    // Función que revisa si todos los inputs tienen valor
+    function validarFormularioEntrada() {
+        // .every() revisa si TODOS los elementos cumplen la condición
+        const todosLlenos = inputsEntrada.every(input => input.value.trim() !== '');
+        
+        // Si están todos llenos, se quita el 'disabled'. Si no, se pone.
+        btnGuardarEntrada.disabled = !todosLlenos;
+    }
+
+    // Añadimos un 'escuchador' a cada input
+    inputsEntrada.forEach(input => {
+        input.addEventListener('input', validarFormularioEntrada); // Valida mientras escribes
+        input.addEventListener('change', validarFormularioEntrada); // Valida si cambia (para la fecha)
+    });
+
+    // --- CÓDIGO AÑADIDO: FIN ---
+
+
     cargarEntradas();
 
     function borrarTabla() {
@@ -27,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
         modeloInput.value = '';
         tallaInput.value = '';
         cantidadInput.value = '';
+
+        // --- MODIFICACIÓN: Se añade esta línea para resetear el botón ---
+        if(btnGuardarEntrada) btnGuardarEntrada.disabled = true; 
     }
 
     function cargarEntradas() {
@@ -51,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
     }
 
-    const formEntrada = document.getElementById('form-entrada');
+    // const formEntrada = document.getElementById('form-entrada'); //<- Esta línea ya estaba en el código añadido
     formEntrada.addEventListener('submit', e => {
         e.preventDefault();
         const proveedor = String(document.getElementById('proveedor').value);
