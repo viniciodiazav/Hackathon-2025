@@ -1,0 +1,236 @@
+/* --- Variables de Color (basadas en tu imagen) --- */
+:root {
+    --color-primary: #4F46E5; /* Azul/Morado principal */
+    --color-primary-light: #EEF2FF; /* Fondo de la píldora */
+    --color-primary-text: #4338CA; /* Texto de la píldora */
+    --color-bg: #F9FAFB;      /* Fondo general de la página */
+    --color-card-bg: #FFFFFF; /* Fondo de la tarjeta/tabla */
+    --color-tab-bg: #F3F4F6;   /* Fondo del contenedor de tabs */
+    --color-text-dark: #1F2937;  /* Texto principal */
+    --color-text-light: #6B7280; /* Texto secundario/subtítulos */
+    --color-border: #E5E7EB;   /* Bordes de tabla */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Reseteo Básico y Fuente --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text-dark);
+    margin: 0;
+    padding: 2rem;
+}
+
+/* --- Contenedor Principal --- */
+.inventory-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 1. Cabecera (Header) --- */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-primary-light);
+    border-radius: 8px;
+    color: var(--color-primary);
+}
+
+.logo .logo-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.logo div {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+.logo span {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+/* --- Estilos de Botones --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.625rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+}
+.btn-primary:hover {
+    background-color: var(--color-primary-text);
+}
+
+.btn-secondary {
+    background-color: var(--color-card-bg);
+    color: var(--color-text-dark);
+    border-color: var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+.btn-secondary:hover {
+    background-color: var(--color-bg);
+}
+
+/* --- 2. Título Principal --- */
+.title-section h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.title-section p {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin: 0.25rem 0 0;
+}
+
+/* --- 3. Pestañas (Tabs) --- */
+.tabs {
+    background-color: var(--color-tab-bg);
+    border-radius: 8px;
+    padding: 5px;
+    display: inline-flex; /* Para que no ocupe todo el ancho */
+    margin-top: 1.5rem;
+}
+
+.tab-link {
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    background-color: transparent;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-link.active {
+    background-color: var(--color-card-bg);
+    color: var(--color-primary-text);
+    box-shadow: var(--shadow-sm);
+}
+
+/* --- 4. Área de Contenido (Tabla) --- */
+.content-tab {
+    display: none; /* Oculto por defecto */
+    background-color: var(--color-card-bg);
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    box-shadow: var(--shadow-md);
+    overflow: hidden; /* Para que la tabla respete el borde redondeado */
+}
+
+.content-tab.active {
+    display: block; /* Visible si está activo */
+}
+
+.content-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.content-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.content-header p {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin: 0.25rem 0 0;
+}
+
+/* --- 5. Tabla de Inventario --- */
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.inventory-table th,
+.inventory-table td {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+    vertical-align: middle;
+}
+
+.inventory-table thead th {
+    font-weight: 500;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.inventory-table tbody tr {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.inventory-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.inventory-table tbody td:first-child strong {
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+/* --- Píldora de Cantidad --- */
+.pill {
+    display: inline-block;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-text);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
