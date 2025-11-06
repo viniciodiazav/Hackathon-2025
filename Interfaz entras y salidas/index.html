@@ -1,131 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Inventario</title>
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+    <body>
 
-    <div class="inventory-container">
+        <div class="inventory-container">
 
-        <header class="header">
-            <div class="logo">
-                <span class="logo-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0v10l-8 4-8-4V7l8-4 8 4zM4 7v10l8 4 8-4V7M12 21V11"></path>
-                    </svg>
-                </span>
-                <div>
-                    <strong>Control de Inventario</strong>
-                    <span>Sistema de Calzado</span>
+            <header class="header">
+                <div class="logo">
+                    <span class="logo-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0v10l-8 4-8-4V7l8-4 8 4zM4 7v10l8 4 8-4V7M12 21V11"></path>
+                        </svg>
+                    </span>
+                    <div>
+                        <strong>Control de Inventario</strong>
+                        <span>Sistema de Calzado</span>
+                    </div>
                 </div>
+
+                <div class="header-buttons">
+                    <button class="btn btn-primary" id="btn-abrir-modal-entrada">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v-8a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2z">
+                            </path>
+                        </svg>
+                        <span>Registrar Entrada</span>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 16l4-4m0 0l-4-4m4 4H5m6 4v-8a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2z">
+                            </path>
+                        </svg>
+                        <span>Registrar Salida</span>
+                    </button>
+                </div>
+            </header>
+
+            <main>
+                <section class="title-section">
+                    <h1>Gestión de Inventario</h1>
+                    <p>Visualice y administre las entradas y salidas de productos</p>
+                </section>
+
+                <nav class="tabs">
+                    <button class="tab-link active" data-tab="entradas">Entradas</button>
+                    <button class="tab-link" data-tab="salidas">Salidas</button>
+                </nav>
+
+                <section id="entradas" class="content-tab active">
+                    <div class="content-header">
+                        <h2>Registro de Entradas</h2>
+                        <p>Productos ingresados al inventario</p>
+                    </div>
+
+                    <table class="inventory-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Fecha</th>
+                                <th>Modelo</th>
+                                <th>Talla</th>
+                                <th>Cantidad</th>
+                                <th>Proveedor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>E001</strong></td>
+                                <td>2025-01-15</td>
+                                <td>Nike Air Max</td>
+                                <td>42</td>
+                                <td><span class="pill">20 unidades</span></td>
+                                <td>Distribuidora Central</td>
+                            </tr>
+                            <tr>
+                                <td><strong>E002</strong></td>
+                                <td>2025-01-14</td>
+                                <td>Adidas Ultraboost</td>
+                                <td>40</td>
+                                <td><span class="pill">15 unidades</span></td>
+                                <td>Importadora Global</td>
+                            </tr>
+                            <tr>
+                                <td><strong>E003</strong></td>
+                                <td>2025-01-13</td>
+                                <td>Puma RS-X</td>
+                                <td>41</td>
+                                <td><span class="pill">25 unidades</span></td>
+                                <td>Distribuidora Central</td>
+                            </tr>
+                            <tr>
+                                <td><strong>E004</strong></td>
+                                <td>2025-01-12</td>
+                                <td>Reebok Classic</td>
+                                <td>39</td>
+                                <td><span class="pill">18 unidades</span></td>
+                                <td>Proveedor Nacional</td>
+                            </tr>
+                            <tr>
+                                <td><strong>E005</strong></td>
+                                <td>2025-01-11</td>
+                                <td>New Balance 574</td>
+                                <td>43</td>
+                                <td><span class="pill">12 unidades</span></td>
+                                <td>Importadora Global</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="salidas" class="content-tab">
+                    <div class="content-header">
+                        <h2>Registro de Salidas</h2>
+                        <p>Productos que han salido del inventario.</p>
+                    </div>
+                    <div style="padding: 1.5rem;">
+                        <p>Aquí iría la tabla de salidas...</p>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+
+        <div class="modal-overlay" id="modal-entrada">
+            <div class="modal-content">
+                <button class="modal-close" id="btn-cerrar-modal">&times;</button>
+                <h2>Registrar Nueva Entrada</h2>
+                <p>Complete los detalles del producto entrante.</p>
+
+                <form id="form-entrada" class="modal-form">
+                    <div class="form-group">
+                        <label for="proveedor">Nombre del Proveedor</label>
+                        <input type="text" id="proveedor" name="proveedor" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lote">Código de Lote</label>
+                        <input type="text" id="lote" name="lote" required>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="modelo">Modelo</label>
+                            <input type="text" id="modelo" name="modelo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="talla">Talla</label>
+                            <input type="number" id="talla" name="talla" min="20" max="50" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad de Pares</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" required>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        Guardar Entrada
+                    </button>
+                </form>
             </div>
-            
-            <div class="header-buttons">
-                <button class="btn btn-primary">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v-8a2 2 0 0 0-2-2h-7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2z"></path>
-                    </svg>
-                    <span>Registrar Entrada</span>
-                </button>
-                <button class="btn btn-secondary">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 16l4-4m0 0l-4-4m4 4H5m6 4v-8a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2z"></path>
-                    </svg>
-                    <span>Registrar Salida</span>
-                </button>
-            </div>
-        </header>
-
-        <main>
-            <section class="title-section">
-                <h1>Gestión de Inventario</h1>
-                <p>Visualice y administre las entradas y salidas de productos</p>
-            </section>
-
-            <nav class="tabs">
-                <button class="tab-link active" data-tab="entradas">Entradas</button>
-                <button class="tab-link" data-tab="salidas">Salidas</button>
-            </nav>
-
-            <section id="entradas" class="content-tab active">
-                <div class="content-header">
-                    <h2>Registro de Entradas</h2>
-                    <p>Productos ingresados al inventario</p>
-                </div>
-                
-                <table class="inventory-table">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Fecha</th>
-                            <th>Modelo</th>
-                            <th>Talla</th>
-                            <th>Cantidad</th>
-                            <th>Proveedor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>E001</strong></td>
-                            <td>2025-01-15</td>
-                            <td>Nike Air Max</td>
-                            <td>42</td>
-                            <td><span class="pill">20 unidades</span></td>
-                            <td>Distribuidora Central</td>
-                        </tr>
-                        <tr>
-                            <td><strong>E002</strong></td>
-                            <td>2025-01-14</td>
-                            <td>Adidas Ultraboost</td>
-                            <td>40</td>
-                            <td><span class="pill">15 unidades</span></td>
-                            <td>Importadora Global</td>
-                        </tr>
-                        <tr>
-                            <td><strong>E003</strong></td>
-                            <td>2025-01-13</td>
-                            <td>Puma RS-X</td>
-                            <td>41</td>
-                            <td><span class="pill">25 unidades</span></td>
-                            <td>Distribuidora Central</td>
-                        </tr>
-                        <tr>
-                            <td><strong>E004</strong></td>
-                            <td>2025-01-12</td>
-                            <td>Reebok Classic</td>
-                            <td>39</td>
-                            <td><span class="pill">18 unidades</span></td>
-                            <td>Proveedor Nacional</td>
-                        </tr>
-                        <tr>
-                            <td><strong>E005</strong></td>
-                            <td>2025-01-11</td>
-                            <td>New Balance 574</td>
-                            <td>43</td>
-                            <td><span class="pill">12 unidades</span></td>
-                            <td>Importadora Global</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            
-            <section id="salidas" class="content-tab">
-                 <div class="content-header">
-                    <h2>Registro de Salidas</h2>
-                    <p>Productos que han salido del inventario.</p>
-                </div>
-                <div style="padding: 1.5rem;">
-                    <p>Aquí iría la tabla de salidas...</p>
-                </div>
-            </section>
-
-        </main>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
