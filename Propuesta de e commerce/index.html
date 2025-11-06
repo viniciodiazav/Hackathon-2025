@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calzando a México - Inicio</title>
+    <!-- Tailwind CSS CDN para estilización rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuración de colores personalizada para la marca
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cm-primary': '#007bff',    /* Azul corporativo (Caballero) */
+                        'cm-dama': '#E91E63',       /* Rosa Fuerte (Dama) */
+                        'cm-ninos': '#4CAF50',      /* Verde (Niños) */
+                        'cm-deportivo': '#FF7F00',  /* Naranja (Deportivos) */
+                        'cm-accesorios': '#5C3877', /* Púrpura (Accesorios) */
+                        'cm-background': '#f8f9fa',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos CSS personalizados no cubiertos por Tailwind */
+        .category-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            height: 350px; /* Altura incrementada para mejor espaciado del texto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3); /* Capa oscura para mejor lectura del texto */
+            z-index: 10;
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 20;
+            /* Agregamos relleno horizontal para que el texto no toque los bordes */
+            padding-left: 1rem; 
+            padding-right: 1rem;
+        }
+
+        .img-logo {
+            width: 106px;
+            mix-blend-mode: multiply;
+        }
+        .img-container {
+            display: flex;
+            justify-content: right;
+        }
+
+    </style>
+</head>
+<body class="bg-cm-background text-gray-800">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center px-10 sticky top-0 z-50">
+        <h2 class="text-3xl font-extrabold text-gray-800">CALZANDO A MÉXICO 👟</h2>
+        <div class="flex items-center space-x-6">
+            <!-- Barra de Búsqueda -->
+            <div class="hidden md:block relative">
+                <input type="text" placeholder="Buscar zapatos..." class="border border-gray-300 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-cm-primary">
+                <svg class="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <!-- Íconos de Carrito y Cuenta -->
+            <span class="text-gray-600 cursor-pointer hover:text-cm-primary transition duration-150" onclick="alert('DEMO: Navegar a la Cuenta del Usuario')">
+                <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                Cuenta
+            </span>
+            <span class="text-gray-600 cursor-pointer hover:text-cm-primary transition duration-150" onclick="alert('DEMO: Navegar al Carrito de Compras')">
+                <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                Carrito
+            </span>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto my-12 p-6">
+        
+        <!-- Banner Principal de Bienvenida/Promoción -->
+        <div class="bg-cm-primary text-white p-12 rounded-xl shadow-lg mb-12 text-center">
+            <h1 class="text-5xl font-extrabold mb-3">¡El Calzado Perfecto para Cada Paso!</h1>
+            <p class="text-xl mb-6">Encuentra los modelos que hacen crecer a Calzando a México.</p>
+            <button class="bg-white text-cm-primary font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300" onclick="alert('DEMO: Llevar a página de ofertas')">Ver Ofertas de la Semana</button>
+        </div>
+
+        <!-- SECCIÓN PRINCIPAL: CATEGORÍAS (Ahora 5 categorías) -->
+        <h2 class="text-3xl font-bold mb-8 text-center border-b-2 border-cm-primary pb-3">Explora Nuestras Colecciones</h2>
+        
+        <!-- Cuadrícula de 5 categorías. Usamos grid-cols-3 para la primera fila -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- TARJETA 1: CABALLERO -->
+            <a href="caballero.html" class="category-card bg-cm-primary rounded-xl shadow-lg hover:bg-blue-600" 
+                 style="background-image: url('https://via.placeholder.com/600x400/007bff/FFFFFF?text=CABALLERO'); background-size: cover;">
+                <div class="card-content">
+                    <h3 class="text-4xl font-extrabold text-white tracking-widest">CABALLERO</h3>
+                    <p class="text-xl text-white mt-2">Formal, Clásico Casual</p>
+                    <span class="inline-block mt-4 text-white border-b border-white hover:border-transparent transition duration-300">Ver Colección &rarr;</span>
+                </div>
+            </a>
+
+            <!-- TARJETA 2: DAMA -->
+            <a href="dama.html" class="category-card bg-cm-dama rounded-xl shadow-lg hover:bg-pink-700" 
+                 style="background-image: url('https://via.placeholder.com/600x400/E91E63/FFFFFF?text=DAMA'); background-size: cover;">
+                 <div class="card-content">
+                    <h3 class="text-4xl font-extrabold text-white tracking-widest">DAMA</h3>
+                    <p class="text-xl text-white mt-2">Estilo, Tendencia y Casual</p>
+                    <span class="inline-block mt-4 text-white border-b border-white hover:border-transparent transition duration-300">Ver Colección &rarr;</span>
+                </div>
+            </a>
+
+            <!-- TARJETA 3: NIÑOS -->
+            <a href="niños.html" class="category-card bg-cm-ninos rounded-xl shadow-lg hover:bg-green-600" 
+                 style="background-image: url('https://via.placeholder.com/600x400/4CAF50/FFFFFF?text=NIÑOS'); background-size: cover;">
+                 <div class="card-content">
+                    <h3 class="text-4xl font-extrabold text-white tracking-widest">NIÑOS</h3>
+                    <p class="text-xl text-white mt-2">Crecimiento y Aventura</p>
+                    <span class="inline-block mt-4 text-white border-b border-white hover:border-transparent transition duration-300">Ver Colección &rarr;</span>
+                </div>
+            </a>
+            
+        </div>
+        
+        <!-- Segunda Fila de Categorías (Deportivos y Accesorios) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            
+            <!-- TARJETA 4: DEPORTIVOS -->
+            <a href="deportivos.html" class="category-card bg-cm-deportivo rounded-xl shadow-lg hover:bg-orange-600" 
+                 style="background-image: url('https://via.placeholder.com/600x400/FF7F00/FFFFFF?text=DEPORTIVOS'); background-size: cover;">
+                <div class="card-content">
+                    <h3 class="text-4xl font-extrabold text-white tracking-widest">DEPORTIVOS</h3>
+                    <p class="text-xl text-white mt-2">Alto Rendimiento y Comodidad</p>
+                    <span class="inline-block mt-4 text-white border-b border-white hover:border-transparent transition duration-300">Ver Colección &rarr;</span>
+                </div>
+            </a>
+
+            <!-- TARJETA 5: ACCESORIOS -->
+            <a href="accesorios.html" class="category-card bg-cm-accesorios rounded-xl shadow-lg hover:bg-purple-600" 
+                 style="background-image: url('https://via.placeholder.com/600x400/5C3877/FFFFFF?text=ACCESORIOS'); background-size: cover;">
+                 <div class="card-content">
+                    <h3 class="text-4xl font-extrabold text-white tracking-widest">ACCESORIOS</h3>
+                    <p class="text-xl text-white mt-2">Cuidado y Estilo Adicional</p>
+                    <span class="inline-block mt-4 text-white border-b border-white hover:border-transparent transition duration-300">Ver Colección &rarr;</span>
+                </div>
+            </a>
+            
+            <!-- Espacio vacío para centrar mejor en md:grid-cols-3 si fuera necesario, aunque se alinea a la izquierda por defecto en Tailwind -->
+            <div class="hidden md:block"></div> 
+            
+        </div>
+        <!-- Fin de Categorías -->
+        <div class="img-container"><img src="assets/Logo_Mentes-de-Mentes-removebg-preview.png" class="img-logo" ></div>
+        
+        <!-- Sección de Marcas Destacadas (Relleno) -->
+        <div class="mt-16 text-center">
+            <h3 class="text-2xl font-bold mb-6 text-gray-700">Compre por Marca</h3>
+            <div class="flex justify-center space-x-10 opacity-75">
+                <img src="https://via.placeholder.com/150x50?text=MARCA+A" alt="Logo Marca A" class="h-10">
+                <img src="https://via.placeholder.com/150x50?text=MARCA+B" alt="Logo Marca B" class="h-10">
+                <img src="https://via.placeholder.com/150x50?text=MARCA+C" alt="Logo Marca C" class="h-10">
+                <img src="https://via.placeholder.com/150x50?text=MARCA+D" alt="Logo Marca D" class="h-10">
+            </div>
+        </div>
+
+
+
+
+    </main>
+
+<footer class="bg-gray-900 text-white p-8">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+         <!-- Nuevo elemento: Texto y Logo a la izquierda -->
+        <a href="greenlife.html" class="flex items-center space-x-2 text-sm text-white hover:text-cm-primary transition duration-300">
+            <!-- Icono/Logo de Demostración (SVG) -->
+<svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+  <path d="M12 2C7 4 3 9 3 14c0 5 4 8 9 8s9-3 9-8c0-3-1.5-7-9-12zm0 18c-3.9 0-7-2.5-7-6 0-3.8 3-7.1 7-9.3 4 2.2 7 5.5 7 9.3 0 3.5-3.1 6-7 6z"/>
+</svg>
+            <span>Green Life</span>
+        </a>
+        
+        <!-- Texto existente: Alineado a la derecha/centro por 'justify-between' -->
+        <p class="text-sm text-center">
+            &copy; 2025 Calzando a México. Solución de Logística.
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>

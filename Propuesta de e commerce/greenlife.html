@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sostenibilidad - Green Life</title>
+    <!-- Tailwind CSS CDN para estilización rápida --><script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cm-primary': '#4CAF50',    /* Verde (Tema Sostenibilidad) */
+                        'cm-secondary': '#5C3877',  /* Púrpura (Accesorios, etc.) */
+                        'cm-background': '#f8f9fa',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos específicos para las tarjetas de estrategia */
+        .strategy-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-cm-background text-gray-800">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center px-10 sticky top-0 z-50">
+        <h2 class="text-3xl font-extrabold text-gray-800" style="color: #4CAF50;">CALZANDO A MÉXICO 👟</h2>
+        <a href="index.html" class="text-gray-600 hover:text-cm-primary transition duration-150">Volver a Inicio</a>
+    </header>
+
+    <main class="max-w-7xl mx-auto my-12 p-6">
+        <h1 class="text-5xl font-extrabold text-center mb-4" style="color: #4CAF50;">¡Lanzamos nuestra iniciativa GreenLife!</h1>
+        <p class="text-lg text-center text-gray-600 mb-12">Una estrategia para reducir el impacto ambiental y maximizar la vida útil de cada par de zapatos.</p>
+        
+        <!-- Párrafo Centrado de Sostenibilidad -->
+        <div class="max-w-4xl mx-auto text-center mb-12 p-8 bg-white rounded-xl shadow-lg border-l-4 border-cm-primary">
+            <p class="text-xl leading-relaxed text-gray-700">
+                En Calzando a México, el compromiso con el medioambiente no es solo una declaración, sino una filosofía que guía nuestras acciones; ahorro de recursos minimizando la necesidad de producir artículos nuevos, preservando materias primas y energía.<br>
+                ¡Conoce los productos totalmente funcionales y a precios increíbles que tenemos para ti! <br> 
+                💚¡Únete a la iniciativa GreenLife!💚 
+            </p>
+        </div>
+
+        <!-- Dos Ventanas de Estrategia -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            
+            <!-- TARJETA 1: Productos de 2ª y 3ª Categoría -->
+            <div class="strategy-card bg-white p-8 rounded-xl shadow-md border-t-4 border-cm-secondary">
+                <div class="flex items-center space-x-4 mb-4">
+                    <svg class="w-8 h-8 text-cm-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    <h2 class="text-2xl font-bold text-gray-800">Productos de 2ª y 3ª Categoría</h2>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    Encuentra productos para ti y dales una segunda oportunidad de vida.
+                </p>
+                <a href="#" onclick="alert('DEMO: Navegar a la sección de liquidación de 2a/3a Categoría')" class="text-cm-secondary font-semibold hover:text-purple-800 transition duration-150">
+                    Ver Canal de Liquidación &rarr;
+                </a>
+            </div>
+
+            <!-- TARJETA 2: Ventas por Volumen -->
+            <div class="strategy-card bg-white p-8 rounded-xl shadow-md border-t-4 border-cm-secondary">
+                <div class="flex items-center space-x-4 mb-4">
+                    <svg class="w-8 h-8 text-cm-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    <h2 class="text-2xl font-bold text-gray-800">Ventas por Volumen</h2>
+                </div>
+                <p class="text-gray-600 mb-4">
+                    Adquiere grandes cantidades de nuestro producto y aprovecha al máximo todos los recursos.
+                </p>
+                <a href="#" onclick="alert('DEMO: Navegar al Portal de Ventas Mayoristas')" class="text-cm-secondary font-semibold hover:text-purple-800 transition duration-150">
+                    Portal de Lotes Mayoristas &rarr;
+                </a>
+            </div>
+            
+        </div>
+    </main>
+
+    <!-- Footer se mantiene simple para esta página secundaria -->
+    <footer class="bg-gray-900 text-white p-8 mt-12 text-center">
+        <p class="text-sm">Green Life es parte de la Solución de Logística y Omnicanalidad de Calzando a México.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accesorios - Catálogo de Productos</title>
+    <!-- Tailwind CSS CDN para estilización rápida -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configuración de colores personalizada para la marca
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cm-primary': '#5C3877',    /* Púrpura para ACCESORIOS */
+                        'cm-background': '#f8f9fa',
+                        'cm-success': '#28a745',    /* Verde para stock */
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos CSS adicionales para efectos */
+        .product-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-cm-background text-gray-800">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-md p-4 flex justify-between items-center px-10 sticky top-0 z-50">
+        <h2 class="text-3xl font-extrabold text-gray-800">CALZANDO A MÉXICO 👟</h2>
+        <div class="flex items-center space-x-6">
+            <div class="hidden md:block relative">
+                <input type="text" placeholder="Buscar productos..." class="border border-gray-300 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-cm-primary">
+                <svg class="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            </div>
+            <span class="text-gray-600 cursor-pointer hover:text-cm-primary transition duration-150" onclick="window.location.href='index.html'">
+                <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h-2m2 0h2"></path></svg>
+                Inicio
+            </span>
+            <span class="text-gray-600 cursor-pointer hover:text-cm-primary transition duration-150">Cuenta</span>
+            <span class="text-gray-600 cursor-pointer hover:text-cm-primary transition duration-150">Carrito</span>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto my-12 p-6">
+        
+        <!-- Breadcrumb / Migas de Pan -->
+        <nav class="text-sm mb-6 text-gray-500">
+            <a href="index.html" class="hover:text-cm-primary">Inicio</a> &gt; 
+            <span class="font-semibold text-gray-700">Accesorios</span>
+        </nav>
+
+        <!-- Título y Filtros -->
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 border-b pb-4">
+            <h1 class="text-4xl font-extrabold text-gray-800 mb-4 md:mb-0">Cuidado, Limpieza y Complementos</h1>
+            
+            <div class="flex flex-wrap gap-4">
+                <select class="border border-gray-300 rounded-lg p-2 focus:ring-cm-primary focus:border-cm-primary">
+                    <option>Ordenar por: Cuidado del Calzado</option>
+                    <option>Limpieza</option>
+                    <option>Plantillas</option>
+                </select>
+                <select class="border border-gray-300 rounded-lg p-2 focus:ring-cm-primary focus:border-cm-primary">
+                    <option>Marca</option>
+                    <option>Marca Cuidado A</option>
+                    <option>Marca Cuidado B</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- CUADRÍCULA DE PRODUCTOS -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <!-- PRODUCTO 1: Kit de Limpieza -->
+            <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                <img src="https://via.placeholder.com/400x300/5C3877/FFFFFF?text=Kit+Limpieza+Zapatos" alt="Kit Limpieza" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <p class="text-xs text-gray-500 mb-1">Limpieza | Premium</p>
+                    <h3 class="font-bold text-xl mb-2 hover:text-cm-primary cursor-pointer">Kit de Limpieza Avanzada</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-2">$350 MXN</p>
+                    <p class="text-sm text-cm-success font-semibold mt-1">En Stock</p>
+                    <a href="producto_individual_accesorios.html" class="w-full mt-3 bg-cm-primary text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition duration-150 block text-center">Ver Producto</a>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 2: Plantillas Ortopédicas -->
+            <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                <img src="https://via.placeholder.com/400x300/5C3877/FFFFFF?text=Plantillas+Ortopedicas" alt="Plantillas" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <p class="text-xs text-gray-500 mb-1">Confort | Ortopédicas</p>
+                    <h3 class="font-bold text-xl mb-2 hover:text-cm-primary cursor-pointer">Plantillas de Soporte Total</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-2">$299 MXN</p>
+                    <p class="text-sm text-yellow-600 font-semibold mt-1">Bajo Stock</p>
+                    <a href="producto_individual_accesorios.html" class="w-full mt-3 bg-cm-primary text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition duration-150 block text-center">Ver Producto</a>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 3: Calcetines Deportivos -->
+            <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                <img src="https://via.placeholder.com/400x300/5C3877/FFFFFF?text=Calcetines+Deportivos" alt="Calcetines" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <p class="text-xs text-gray-500 mb-1">Deportivo | Transpirable</p>
+                    <h3 class="font-bold text-xl mb-2 hover:text-cm-primary cursor-pointer">Calcetines Anti-ampollas (3 pares)</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-2">$180 MXN</p>
+                    <p class="text-sm text-cm-success font-semibold mt-1">En Stock</p>
+                    <a href="producto_individual_accesorios.html" class="w-full mt-3 bg-cm-primary text-white py-2 rounded-lg font-semibold hover:bg-purple-700 transition duration-150 block text-center">Ver Producto</a>
+                </div>
+            </div>
+            
+            <!-- PRODUCTO 4: Tinta para Cuero -->
+            <div class="product-card bg-white rounded-lg shadow-lg overflow-hidden border border-gray-200">
+                <img src="https://via.placeholder.com/400x300/5C3877/FFFFFF?text=Tinta+para+Cuero" alt="Tinta Cuero" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <p class="text-xs text-gray-500 mb-1">Cuidado | Mantenimiento</p>
+                    <h3 class="font-bold text-xl mb-2 hover:text-cm-primary cursor-pointer">Tinta Revitalizante para Cuero</h3>
+                    <p class="text-2xl font-bold text-gray-900 mt-2">$120 MXN</p>
+                    <p class="text-sm text-gray-500 font-semibold mt-1">Agotado</p>
+                    <a href="producto_individual_accesorios.html" class="w-full mt-3 bg-gray-400 text-white py-2 rounded-lg font-semibold cursor-not-allowed block text-center">Ver Tiendas</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- FIN DE CUADRÍCULA DE PRODUCTOS -->
+        
+    </main>
+
+    <footer class="bg-gray-900 text-white p-8 mt-12 text-center">
+        <p>&copy; 2024 Calzando a México. Solución de Logística y Omnicanalidad.</p>
+    </footer>
+
+</body>
+</html>
